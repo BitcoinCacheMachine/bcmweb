@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Bitcoin Cache Machine | Privacy-preserving Bitcoin Payment infrastructure for home and office.</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="Bitcoin Cache Machine" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Privacy-preserving Bitcoin Payment infrastructure for home and office." />
+<meta property="og:description" content="Privacy-preserving Bitcoin Payment infrastructure for home and office." />
+<link rel="canonical" href="http://localhost:4000/content/gateway.html" />
+<meta property="og:url" content="http://localhost:4000/content/gateway.html" />
+<meta property="og:site_name" content="Bitcoin Cache Machine" />
+<script type="application/ld+json">
+{"@type":"WebPage","url":"http://localhost:4000/content/gateway.html","headline":"Bitcoin Cache Machine","description":"Privacy-preserving Bitcoin Payment infrastructure for home and office.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=92419ec9030e5a41186c8c2f74a9bbd9205958c9">
+  </head>
+  <body>
+    <!-- <a id="skip-to-content" href="#content">Skip to the content.</a> -->
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">Bitcoin Cache Machine</h1>
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <ul>
+  <li></li>
+  <li>TOR SOCKS5 PROXY configured to perform DNS over TOR</li>
+  <li>An HTTP proxy configured to use the TOR service for outbound HTTP requests.</li>
+</ul>
+
+<h1 id="gateway"><code class="highlighter-rouge">gateway</code></h1>
+
+<p>The <code class="highlighter-rouge">gateway</code> LXC container is intended to be deployed on computer that has at least two (2) physical network interfaces each connected to a distinct L2 broadcast domain. These interfaces are the <code class="highlighter-rouge">untrusted outside</code> and <code class="highlighter-rouge">trusted inside</code> interfaces and MUST exist as separate physical L2 broadcast domains.</p>
+
+<p>For the <code class="highlighter-rouge">untrusted outside</code> interface, macvlan is used to obtain an IP address and default gateway from the upstream DHCP server such that might be running on your DSL or cable modem or the Linksys or Netgear router providing DHCP on your internal home or office network. Since <code class="highlighter-rouge">gateway</code> uses macvlan on the <code class="highlighter-rouge">untrusted outside</code> interface, it can be used as the LXD endpoint, though would exist on a separate IP address. The outside interface obtains IP and default gateway information from a DHCP server upstream, such as a DSL or cable modem or your existing network.</p>
+
+<p>It’s important to understand that the network <code class="highlighter-rouge">bcmnet</code> can be configured to attach to a physical LAN segment. This is required when you want to run your home or office network on more than one computer which is required if you require any kind of scale or if you need to run a component on specialized hardware (e.g., Bitcoin miner or IoT sensors).</p>
+
+<h2 id="required-services-provided-by-bcm-gateway">Required Services provided by <code class="highlighter-rouge">bcm-gateway</code></h2>
+
+<h2 id="dhcp">DHCP</h2>
+
+<p>DHCP clients requesting an IP information SHOULD provide a hostname which is auto-pushed into the DNS.</p>
+
+<h2 id="dns">DNS</h2>
+
+<p>Both the <code class="highlighter-rouge">untrusted outside</code> and <code class="highlighter-rouge">trusted inside</code> interfaces MUST be explicitly set by the administrator (see ./resources/defaults/gateway.env).</p>
+
+<h2 id="docker-registry-mirror-image-cache">Docker Registry Mirror Image Cache</h2>
+
+<p>The registry mirror hosted on <code class="highlighter-rouge">gateway</code> is configured to use <a href="https://docs.docker.com/engine/security/certificates/">certificate-based client-server authentication</a>. Docker daemons having access to bcmnet use this mirror as an image-cache-of-last-resort. TODO is to implement TOR for outbound communication by docker registry process if possible. Note that general strategy, if possible, is to rely on privately built images, which get stored in the Private Registry (see below).</p>
+
+<h2 id="docker-private-registry">Docker Private Registry</h2>
+
+<p>The Private Registry hosts all custom-built images. BCM structures docker image layers to minimze disk usage. Downstream docker daemons on <code class="highlighter-rouge">bcmnet</code> may push images to the private registry. The general strategy for creating custom docker images is to create an ephemeral build lxc container. These temporary <code class="highlighter-rouge">builder</code> containers pull base images from the Registry Mirror then performs the build process using <code class="highlighter-rouge">docker build</code>. Scripts then push the tagged image to the private registry located at <code class="highlighter-rouge">bcmnet:443</code>. Communication is secured using TLS 1.3 and uses certificate-based client-server authentication.</p>
+
+<h2 id="squid-https-proxy">Squid HTTPS proxy</h2>
+
+
+
+      <footer class="site-footer">
+    
+      <span class="site-footer-owner"><a href="http://localhost:4000">Bitcoin Cache Machine</a> is maintained by <a href="http://github.com/BitcoinCacheMachine">BitcoinCacheMachine</a>.</span>
+    
+</footer>
+    </main>
+  </body>
+</html>

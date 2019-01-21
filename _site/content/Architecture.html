@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Architecture | Bitcoin Cache Machine</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="Architecture" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Privacy-preserving Bitcoin Payment infrastructure for home and office." />
+<meta property="og:description" content="Privacy-preserving Bitcoin Payment infrastructure for home and office." />
+<link rel="canonical" href="http://localhost:4000/content/Architecture.html" />
+<meta property="og:url" content="http://localhost:4000/content/Architecture.html" />
+<meta property="og:site_name" content="Bitcoin Cache Machine" />
+<script type="application/ld+json">
+{"@type":"WebPage","url":"http://localhost:4000/content/Architecture.html","headline":"Architecture","description":"Privacy-preserving Bitcoin Payment infrastructure for home and office.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=92419ec9030e5a41186c8c2f74a9bbd9205958c9">
+  </head>
+  <body>
+    <!-- <a id="skip-to-content" href="#content">Skip to the content.</a> -->
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">Bitcoin Cache Machine</h1>
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <h2 id="architecture">Architecture</h2>
+
+<p>BCM is built entirely on Ubuntu (cosmic). BCM can run inside a VM or on bare-metal (preferred).  LXD/LXC system containers are used to provision system-level containers (analogous to a VM in the cloud). Docker daemon runs in each LXD system container and is responsible for running application-specific containers.</p>
+
+<p>TCP 9050 (TOR) outbound is required for BCM to function. This is required since BCM exposes some of the services on the TOR overlay network facilitating client connections (e.g., a wallet app on your phone, or maybe a block explorer). This allows you to host your own infrastructure while maintaining a very cloud-like feel, all without having to fiddle with your external firewall.</p>
+
+<p>BCM begins by deploying full Bitcoin infrastructure to the environment via LXD system containers running Docker daemon. A Bitcoin full node running Bitcoin Core 16.0 is deployed along with Lightning Network Daemon (lnd) (other implementations planned). BCM includes Kafka infrastructure for distributed messaging and stream processing. All logs are sent to Kafka which is the system of record for user data. Event processing if facilitated by Kafka Streams.</p>
+
+<h2 id="why-use-docker-swarm-and-lxd">Why use Docker Swarm and LXD?</h2>
+
+<p>LXD is used primarily to facilitate multi-tenancy across shared hardware for service provider use cases. Although this is useful for the enterprise providing shared infrastructure, it compromises individual sovereignty (necessarily)! The fact is, if you rely on someone else to run a part of your finances (including the financial system!), you cede your financial sovereignty! Why? Because you’re stupidly relying on a “trusted” third-party to validate all transactions (including money supply)! In the 21st centruty, to be secure in your finances means to ALSO to independently validate the underlying financial system upon which you are recording your all your business transactions!  Bitcoin is the only public blockchain that is worthy of the property of “secure”!</p>
+
+<h2 id="bitcoin-cache-machine-components">Bitcoin Cache Machine Components</h2>
+
+<p>First, it is important that Bitcoin Cache Machine is designed to be composable. The components listed below may be deployed depending on the desired use case. Second is to remember that the components listed below are simply LXD</p>
+
+<p>Each Bitcoin Cache Machine deployment includes one or more of the following components:</p>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">gateway</code> - an lxc container that provides essential network services for BCM deployments. <code class="highlighter-rouge">gateway</code> isn’t strictly necessary, but having one on your network greatly improves your privacy and improves the overall experience. <code class="highlighter-rouge">gateway</code> runs <a href="http://www.thekelleys.org.uk/dnsmasq/doc.html">dnsmasq</a> which provides DHCP and DNS services for your physical network home or office network. <em>From the perspective of BCM, this is the physical underlay network</em>. BCM components, e.g., cachestack, managers, bitcoin, elastic, etc., SHOULD be deployed on <code class="highlighter-rouge">gateway</code> <em>physical underlay network</em>, aka <code class="highlighter-rouge">trusted inside</code> network. <code class="highlighter-rouge">gateway</code> allows outbound outbound traffic (i.e., ip forwarding) from the <code class="highlighter-rouge">trusted inside</code> to <code class="highlighter-rouge">untrusted outside</code> according to a strict firewall policy, only TCP 9050 (TOR) traffic is allowed. This ensures that all traffic originating on the <code class="highlighter-rouge">trusted inside</code> is configured to use TOR. More details about <code class="highlighter-rouge">gateway</code> and its operation can be found at ./lxd/bcm_core/README.md.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">cachestack</code> - a set of LXD components that primarily provide caching services for other BCM components. <code class="highlighter-rouge">cachestack</code> MAY be installed in either standalone mode  (essential for development), in which case it provides caching services to devices on your network, or 2) in combination with other BCM components. Certain BCM components are dependent on one or more caching services that are expected to be hosted on a <code class="highlighter-rouge">cachestack</code>. If there is no standalone <code class="highlighter-rouge">cachestack</code> on your LAN segment, BCM installs a local copy and uses it internally; that is, BCM is dependent on a <code class="highlighter-rouge">cachestack</code> existing. Each <code class="highlighter-rouge">cachestack</code> hosts a Docker registry mirror configured as a pull-through cache and a private docker registry to store images emitted after the docker image build process.  More information about the <code class="highlighter-rouge">cachestack</code> and its components can be found at ./lxd/cachestack/README.md.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">manager1</code> [required], <code class="highlighter-rouge">manager2</code> [optional], <code class="highlighter-rouge">manager3</code> [optional] – There are manager LXD hosts that 1) provides container service orchestration using <a href="https://docs.docker.com/engine/swarm/">Docker Swarm Mode</a>, and 2) hosts a docker stack that provides event messaging services based on <a href="https://kafka.apache.org/">Apache Kafka</a>. Dependent LXD hosts, e.g., <code class="highlighter-rouge">bitcoin</code>, <code class="highlighter-rouge">app_host</code> are configured to LOG messages to one or more upstream <code class="highlighter-rouge">manager</code> hosts. The docker-ce daemon on each manager host is configured to use a docker registry mirror hosted on an upstream <code class="highlighter-rouge">cachestack</code>. A Kafka messaging stack is deployed to each manager node for distributed messaging and is the system-of-record for event data. More information on <code class="highlighter-rouge">manager</code> hosts can be found in “$BCM_LOCAL_GIT_REPO_DIR/lxd/managers/README.md”.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">bitcoin</code> – the <code class="highlighter-rouge">bitcoin</code> lxd host is built for bitcoin-related services. The dockerd daemon on any <code class="highlighter-rouge">bitcoin</code> BCM instance is configured to log messages via TCP-based GELF to a <code class="highlighter-rouge">manager</code> instance which runs a GELF listener. The <code class="highlighter-rouge">bitcoin</code> LXC host is capable of running a Bitcoin Core full node, one or more Lightning daemons, applications like BTCPay, lightning-charge, etc.. Users may choose which additional components to deploy depending the expected use case. All daemons running on a <code class="highlighter-rouge">bitcoin</code> BCM instance are configured use TOR for outbound communication. Individual services, e.g,. bitcoind RPC, lnd gRPC, c-lightning RPC, lightning-charge REST API, etc., MAY be exposed as authenticated TOR onion sites.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">app_host</code> – hosts designed for user applications. Each app_host can be named according to user requirements, examples include hosting an <code class="highlighter-rouge">elastic</code> database for visualizing data originating from a Kafka topic, or perhaps <code class="highlighter-rouge">streamhost</code> for stream processing to/from Kafka topics. Developers choosing BCM as an operating platform create custom code and organize it here. /lxd/app_host/README.md provides BASH scripts for provisioning each <code class="highlighter-rouge">app_host</code>. Users simply develop associated <code class="highlighter-rouge">$BCM_LOCAL_GIT_REPO_DIR/docker_stack</code> files <code class="highlighter-rouge">$BCM_LOCAL_GIT_REPO_DIR/docker_image</code> files to deploy a custom app.</p>
+  </li>
+</ul>
+
+
+      <footer class="site-footer">
+    
+      <span class="site-footer-owner"><a href="http://localhost:4000">Bitcoin Cache Machine</a> is maintained by <a href="http://github.com/BitcoinCacheMachine">BitcoinCacheMachine</a>.</span>
+    
+</footer>
+    </main>
+  </body>
+</html>
