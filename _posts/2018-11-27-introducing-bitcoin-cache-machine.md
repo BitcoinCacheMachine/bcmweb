@@ -1,9 +1,11 @@
 ---
-layout: blog
-title:  "Introducing Bitcoin Cache Machine"
-date:   2018-11-27 11:24:47 -0500
-tags: [bitcoin, lightning, software-defined-network]
+layout: post
+title:  Introducing Bitcoin Cache Machine
 author: farscapian
+subtitle: a privacy-preserving Software-defined Data Center
+tags: [bitcoin, lightning, software-defined-network]
+category:  project1
+visualworkflow: true
 ---
 
 Bitcoin Cache Machine is open-source software that implements a self-hosted, privacy-preserving, software-defined network. BCM is built entirely with free and open-source software and is meant primarily for home and small office use in line with the spirit of decentralization. Its broad purpose is to software-define your home or office network with resilient privacy-preserving Bitcoin-related payment and operating IT infrastructure.
