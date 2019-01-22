@@ -2,7 +2,7 @@
 title: Bitcoin Cache Machine
 email: info@bitcoincachemachine.org
 description: Privacy-preserving Bitcoin Payment infrastructure for home and office.
-url: www.bitcoincachemachine.org
+url: https://www.bitcoincachemachine.org
 twitter_username: BTCCacheMachine
 github_username:  BitcoinCacheMachine
 permalink: /:categories/:year/:month/:day/:title:output_ext
@@ -15,7 +15,7 @@ plugins:
   - jekyll-paginate
 
 # Secondary Parameters
-baseurl: "www.bitcoincachemachine.org"
+baseurl: ""
 header-img: img/header.jpg
 headercolor: "#FFFFFF"
 logo: /img/bcm_logo.png
