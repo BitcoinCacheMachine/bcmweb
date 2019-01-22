@@ -15,6 +15,7 @@ plugins:
   - jekyll-paginate
 
 # Secondary Parameters
+baseurl: ""
 header-img: img/header.jpg
 headercolor: "#FFFFFF"
 logo: /img/bcm_logo.png
