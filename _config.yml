@@ -15,10 +15,10 @@ plugins:
   - jekyll-paginate
 
 # Secondary Parameters
-#baseurl: "/project-pages"
 header-img: img/header.jpg
 headercolor: "#FFFFFF"
 logo: /img/bcm_logo.png
+icon: /img/bcm_icon.png
 
 # Tertiary Parameters
 github_username:  BitcoinCacheMachine
@@ -109,18 +109,10 @@ prose:
           element: "text"
           label: "Project"
           value: ""    
-      - name: "horizontal"
-        field:
-          element: "hidden"
-          value: </section></section><section markdown="1" data-background="http://projectpages.github.io/project-pages/img/slidebackground.png"><section markdown="1">
       - name: "vertical"
         field:
           element: "hidden"
           value: </section><section markdown="1">
-      - name: "slideinit"
-        field:
-          element: "hidden"
-          value: <section markdown="1" data-background="http://projectpages.github.io/project-pages/img/slidebackground.png"><section markdown="1">
       - name: "theme"
         field:
           element: "select"
