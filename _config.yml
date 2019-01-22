@@ -23,9 +23,8 @@ icon: /img/bcm_icon.png
 # Tertiary Parameters
 github_username:  BitcoinCacheMachine
 project_repository: BitcoinCacheMachine
-disqus_shortname: BitcoinCacheMachine
-g-analytics: UA-75881392-1
-altmetric: true
+# g-analytics: UA-75881392-1
+# altmetric: true
 
 # Build settings
 markdown: kramdown
