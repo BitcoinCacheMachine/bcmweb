@@ -15,7 +15,7 @@ plugins:
   - jekyll-paginate
 
 # Secondary Parameters
-baseurl: ""
+baseurl: "www.bitcoincachemachine.org"
 header-img: img/header.jpg
 headercolor: "#FFFFFF"
 logo: /img/bcm_logo.png
