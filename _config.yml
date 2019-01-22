@@ -5,7 +5,7 @@ description: Privacy-preserving Bitcoin Payment infrastructure for home and offi
 url: https://www.bitcoincachemachine.org
 twitter_username: BTCCacheMachine
 github_username:  BitcoinCacheMachine
-permalink: /:categories/:year/:month/:day/:title:output_ext
+permalink: /:year/:month/:day/:title:output_ext
 
 # Build settings
 markdown: kramdown

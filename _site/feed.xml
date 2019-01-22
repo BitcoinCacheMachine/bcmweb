@@ -5,8 +5,8 @@
     <description>Privacy-preserving Bitcoin Payment infrastructure for home and office.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 22 Jan 2019 09:15:06 -0500</pubDate>
-    <lastBuildDate>Tue, 22 Jan 2019 09:15:06 -0500</lastBuildDate>
+    <pubDate>Tue, 22 Jan 2019 11:47:23 -0500</pubDate>
+    <lastBuildDate>Tue, 22 Jan 2019 11:47:23 -0500</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -63,8 +63,8 @@ Conclusion
 BCM dramatically lowers the barriers to deploying and operating your own privacy-preserving bitcoin payment infrastructure. This network and its components deploy in a fully automated way and run on commodity x86_64, so it’s likely you can start testing it today! You just need to provide CPU, memory, disk, a modern Linux kernel with LXD installed, and an Internet connection! Deploy any combination of BCM components to create the data center that suits your particular needs!
 </description>
         <pubDate>Tue, 27 Nov 2018 00:00:00 -0500</pubDate>
-        <link>http://localhost:4000/project1/2018/11/27/introducing-bitcoin-cache-machine/</link>
-        <guid isPermaLink="true">http://localhost:4000/project1/2018/11/27/introducing-bitcoin-cache-machine/</guid>
+        <link>http://localhost:4000/2018/11/27/introducing-bitcoin-cache-machine/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/11/27/introducing-bitcoin-cache-machine/</guid>
         
         <category>bitcoin</category>
         
@@ -72,8 +72,6 @@ BCM dramatically lowers the barriers to deploying and operating your own privacy
         
         <category>software-defined-network</category>
         
-        
-        <category>project1</category>
         
       </item>
     
