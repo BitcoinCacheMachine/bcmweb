@@ -16,7 +16,7 @@ plugins:
 
 # Secondary Parameters
 header-img: img/header.jpg
-headercolor: "#FFFFFF"
+headercolor: "white"
 logo: /img/bcm_logo.png
 icon: /img/bcm_icon.png
 

@@ -3,9 +3,23 @@ layout: page
 description: A Privacy-preserving Software-defined Data Center
 ---
 
+<h2>Download The Source Files</h2>
+<ul>
+    <li>Choose your entire bitcoin software stack, have a fully integrated environment provisioned automatically.</li>
+    <li>Choose Bitcoin Cache Machine as a platform to develop your line-of-business idea.</li>
+    <li>Let Bitcoin Cache Machine handle the infrastructure and operations management for your application: password
+        and certificate management, automated backups of user data, key rotation, vulnerability and change management,
+        etc.</li>
+    <li>Use the same code for testing, staging, and production workloads.</li>
+    <li>Rapidly iterate on your Bitcoin business ideas. Deploy a new configuration in minutes.</li>
+</ul>
+
+
+<hr />
+<h3>The Latest From The Blog</h3>
 {% for post in paginator.posts %}
 <div class="post-preview">
-    <a href="{{ post.url | prepend: site.baseurl }}">
+    <a href="{{ post.url }}">
         <h2 class="post-title">{{ post.title }}</h2>
         {% if post.subtitle %}
         <h3 class="post-subtitle">
@@ -14,9 +28,10 @@ description: A Privacy-preserving Software-defined Data Center
         {% endif %}
     </a>
     <p class="post-meta" style="margin-bottom:5px">Posted by {{ post.author }} on {{ post.date | date: "%B %-d, %Y" }}</p>
-	<div class="notepad-index-post-tags" style="">
-		{% for tag in post.tags %}<a href="{{ site.baseurl }}/search/index.html#{{ tag | cgi_encode }}" title="Other posts from the {{ tag | capitalize }} tag">{{ tag | capitalize }}</a>{% unless forloop.last %}&nbsp;{% endunless %}{% endfor %}
-	</div>
+    <div class="notepad-index-post-tags" style="">
+        {% for tag in post.tags %}<a href="{{ site.baseurl }}/search/index.html#{{ tag | cgi_encode }}" title="Other posts from the {{ tag | capitalize }} tag">{{
+            tag | capitalize }}</a>{% unless forloop.last %}&nbsp;{% endunless %}{% endfor %}
+    </div>
 </div>
 <hr>
 {% endfor %}
@@ -26,14 +41,13 @@ description: A Privacy-preserving Software-defined Data Center
 <ul class="pager">
     {% if paginator.previous_page %}
     <li class="previous">
-        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+        <a href="{{ paginator.previous_page_path  | replace: '//', '/' }}">&larr; Newer Posts</a>
     </li>
     {% endif %}
     {% if paginator.next_page %}
     <li class="next">
-        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+        <a href="{{ paginator.next_page_path | replace: '//', '/' }}">Older Posts &rarr;</a>
     </li>
     {% endif %}
 </ul>
 {% endif %}
-
