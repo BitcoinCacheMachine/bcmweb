@@ -14,20 +14,22 @@ description: A Privacy-preserving Software-defined Data Center
     <li>Rapidly iterate on your Bitcoin business ideas. Deploy a new configuration in minutes.</li>
 </ul>
 
+<center>
 <p  style="justify-content: center">
     <a target="_blank" rel="noopener noreferrer" href="https://github.com/BitcoinCacheMachine/BitcoinCacheMachine" ><img src="/img/git-2.png" height="100px"  /></a>
 </p>
+</center>
 
 <hr />
-<h3>The Latest From The Blog</h3>
+<h2>The Latest From The Blog</h2>
 {% for post in paginator.posts %}
 <div class="post-preview">
     <a href="{{ post.url }}">
-        <h2 class="post-title">{{ post.title }}</h2>
+        <h3 class="post-title">{{ post.title }}</h3>
         {% if post.subtitle %}
-        <h3 class="post-subtitle">
+        <h4 class="post-subtitle">
             {{ post.subtitle }}
-        </h3>
+        </h4>
         {% endif %}
     </a>
     <p class="post-meta" style="margin-bottom:5px">Posted by {{ post.author }} on {{ post.date | date: "%B %-d, %Y" }}</p>
