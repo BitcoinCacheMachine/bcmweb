@@ -33,7 +33,6 @@
 
 body {
     font-family: 'Proxima Nova Regular', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    color: #ffe0ab;
 }
 
 h1, h2, h5, h6, .intro-header .site-heading .subheading, .intro-header .page-heading .subheading {
@@ -94,6 +93,7 @@ h3 {
     background: url(../img/background_gradient.png) no-repeat center center;
     background-attachment: scroll;
     background-size: cover;
+    color: #ffe0ab;
 }
 
 .home-background ul {
@@ -147,7 +147,7 @@ footer {
     font-family: 'Proxima Nova Bold', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-.copyright a {
+.copyright, .copyright a {
     color: #ffe0ab;
     text-decoration: none;
 }
@@ -161,5 +161,13 @@ footer .fa {
 }
 
 footer .fa-inverse {
+    color: #000;
+}
+
+#content, #content h2, .recentpost, .recentpost h4, .recentpost h2 {
+    color: #000;
+}
+
+.member-name {
     color: #000;
 }
