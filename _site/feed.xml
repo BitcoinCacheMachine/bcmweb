@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Bitcoin Cache Machine - A Privacy-preserving Software-defined Data Center</title>
+    <title>Bitcoin Cache Machine - A Secure, Privacy-Preserving, Software-Defined Data Center</title>
     <description>Privacy-preserving Bitcoin Payment infrastructure for home and office.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 24 Feb 2019 20:35:44 -0500</pubDate>
-    <lastBuildDate>Sun, 24 Feb 2019 20:35:44 -0500</lastBuildDate>
+    <pubDate>Thu, 30 May 2019 16:36:24 +0200</pubDate>
+    <lastBuildDate>Thu, 30 May 2019 16:36:24 +0200</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
         <title>Greenville ACM presentation on Bitcoin Cache Machine</title>
         <description>Here’s the link to the presentation slides..
 </description>
-        <pubDate>Sat, 12 Jan 2019 17:00:00 -0500</pubDate>
+        <pubDate>Sat, 12 Jan 2019 23:00:00 +0100</pubDate>
         <link>http://localhost:4000/2019/01/12/presentation-slides/</link>
         <guid isPermaLink="true">http://localhost:4000/2019/01/12/presentation-slides/</guid>
         
@@ -62,7 +62,7 @@ Conclusion
 
 BCM dramatically lowers the barriers to deploying and operating your own privacy-preserving bitcoin payment infrastructure. This network and its components deploy in a fully automated way and run on commodity x86_64, so it’s likely you can start testing it today! You just need to provide CPU, memory, disk, a modern Linux kernel with LXD installed, and an Internet connection! Deploy any combination of BCM components to create the data center that suits your particular needs!
 </description>
-        <pubDate>Tue, 27 Nov 2018 00:00:00 -0500</pubDate>
+        <pubDate>Tue, 27 Nov 2018 00:00:00 +0100</pubDate>
         <link>http://localhost:4000/2018/11/27/introducing-bitcoin-cache-machine/</link>
         <guid isPermaLink="true">http://localhost:4000/2018/11/27/introducing-bitcoin-cache-machine/</guid>
         
