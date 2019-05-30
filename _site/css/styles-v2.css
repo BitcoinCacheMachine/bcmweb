@@ -66,7 +66,7 @@ h3 {
     color: #ffe0ab;
 }
 
-.github-download, .github-download:hover {
+.github-download, .github-download:hover, .github-download:focus, .github-download:active {
     border: 2px solid #ffe0ab;
     border-radius: 5px;
     padding: 10px 30px;
