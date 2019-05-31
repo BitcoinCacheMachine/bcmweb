@@ -61,6 +61,19 @@ h3 {
     color: #fff;
 }
 
+.navbar-custom.is-fixed {
+    top: 0;
+    position: fixed;
+}
+
+.navbar-custom.is-fixed {
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+}
+
 .github {
     font-family: 'Proxima Nova Bold', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     color: #ffe0ab;
@@ -109,14 +122,36 @@ h3 {
 }
 
 .navbar-custom.is-fixed {
-    top: -71px;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 1);
     border-bottom: 1px solid #ffe0ab;
+    padding-bottom: 10px;
+}
+
+.navbar-default {
+    padding-bottom: 10px;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: #ffe0ab;
+}
+
+.navbar-header img {
+    margin-left: 0;
+    margin-right: 0;
 }
 
 @media only screen and (max-width: 767px) {
+    .navbar-custom {
+        position: fixed;
+    }
+
+    .navbar-default {
+        border-color: #ffe0ab;
+    }
+
     .navbar-fixed-top {
-        background-color: rgba(0, 0, 0, 0.3);
+        background-color: rgba(0, 0, 0, 1);
+        padding-bottom: 0px;
     }
 
     .navbar-fixed-top .navbar-header img {
@@ -170,4 +205,14 @@ footer .fa-inverse {
 
 .member-name {
     color: #000;
+}
+
+@media only screen and (min-width: 768px) {
+    .intro-header .post-heading h1 {
+        font-size: 40px;
+    }
+
+    .intro-header .post-heading h2 {
+        font-size: 24px;
+    }
 }
