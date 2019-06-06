@@ -1,5 +1,5 @@
 
-title: Bitcoin Cache Machine - A Privacy-preserving Software-defined Data Center
+title: Bitcoin Cache Machine - A Secure, Privacy-Preserving, Software-Defined Data Center
 email: info@bitcoincachemachine.org
 description: Privacy-preserving Bitcoin Payment infrastructure for home and office.
 url: https://www.bitcoincachemachine.org
@@ -14,10 +14,10 @@ plugins:
   - jekyll-paginate
 
 # Secondary Parameters
-header-img: img/header.jpg
+header-img: img/header_v2.png
 headercolor: "white"
-logo: /img/bcm_logo.png
-icon: /img/bcm_icon.png
+logo: /img/bcm_logo_v2.png
+icon: /img/bcm_icon_v2.png
 
 # Tertiary Parameters
 github_username:  BitcoinCacheMachine
@@ -52,7 +52,7 @@ prose:
         field:
           element: "text"
           label: "Project"
-          value: ""           
+          value: ""
     _posts:
       - name: "subtitle"
         field:
@@ -94,7 +94,7 @@ prose:
         field:
           element: "text"
           label: "Project"
-          value: ""    
+          value: ""
       - name: "vertical"
         field:
           element: "hidden"
@@ -110,13 +110,13 @@ prose:
             - name: "Blood"
               value: "blood"
             - name: "Moon"
-              value: "moon"          
+              value: "moon"
             - name: "Night"
               value: "night"
             - name: "Sky"
               value: "sky"
             - name: "Solarized"
-              value: "solarized"             
+              value: "solarized"
       - name: "trans"
         field:
           element: "select"
@@ -128,13 +128,13 @@ prose:
             - name: "Page"
               value: "page"
             - name: "Concave"
-              value: "concave"          
+              value: "concave"
             - name: "Linear"
               value: "linear"
             - name: "Fade"
               value: "fade"
             - name: "None"
-              value: "none"             
+              value: "none"
       - name: "visualworkflow"
         field:
           element: "checkbox"
