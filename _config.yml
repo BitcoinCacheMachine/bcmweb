@@ -2,7 +2,7 @@
 title: Bitcoin Cache Machine - A Secure, Privacy-Preserving, Software-Defined Data Center
 email: info@bitcoincachemachine.org
 description: Privacy-preserving Bitcoin Payment infrastructure for home and office.
-url: https://www.bitcoincachemachine.org
+#url: https://www.bitcoincachemachine.org
 twitter_username: BTCCacheMachine
 github_username:  BitcoinCacheMachine
 permalink: /:year/:month/:day/:title:output_ext
@@ -33,7 +33,7 @@ exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 # Prose Settings
 prose:
   ignore: ['feed.xml', '/stl', '/ply', '/js', '/plugin', '/lib', '/projectors', '_layouts', '/_includes', 'Gruntfile.js', 'package.json', 'proselinks.jsonp', 'ppanchor.matin', '.gitignore', '/search', '/css', '/img', '/img/favicon.png','_data/*.json','LICENSES.md','README.md','colorscheme.scss','members.html','index.html']
-  siteurl: 'http://www.bitcoincachemachine.org/'
+  #siteurl: 'http://www.bitcoincachemachine.org/'
   ispp: true
   media: 'img'
   metadata:

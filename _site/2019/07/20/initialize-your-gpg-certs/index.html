@@ -7,9 +7,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Privacy-preserving Bitcoin Payment infrastructure for home and office.">
-	<meta property="og:title" content="Greenville ACM presentation on Bitcoin Cache Machine" />
+	<meta property="og:title" content="Use BCM with your Trezor" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="///2019/01/12/presentation-slides/" />
+<meta property="og:url" content="///2019/07/20/initialize-your-gpg-certs/" />
 <meta property="og:image" content="//img/header_v2.png">
 
 
@@ -17,9 +17,9 @@
 
 	<link rel='shortcut icon' type='image/png' href='/img/favicon.png' />
 
-	<title>Greenville ACM presentation on Bitcoin Cache Machine - Bitcoin Cache Machine - A Secure, Privacy-Preserving, Software-Defined Data Center</title>
+	<title>Use BCM with your Trezor - Bitcoin Cache Machine - A Secure, Privacy-Preserving, Software-Defined Data Center</title>
 
-	<link rel="canonical" href="/2019/01/12/presentation-slides/">
+	<link rel="canonical" href="/2019/07/20/initialize-your-gpg-certs/">
 
 	<!-- Bootstrap Core CSS -->
 	<link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -121,11 +121,11 @@
 		<div class="row">
 			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 				<div class="post-heading" style="padding: 50px 0">
-					<h1>Greenville ACM presentation on Bitcoin Cache Machine</h1>
+					<h1>Use BCM with your Trezor</h1>
 					
-					<h2 class="subheading">Problem statement, concept of operations, command line interface, architecture.</h2>
+					<h2 class="subheading">Initialize your Trezor GPG certificates, make git commits and tags, and login to a remote machine using SSH.</h2>
 					
-					<span class="meta">Posted by farscapian on January 12, 2019</span>
+					<span class="meta">Posted by farscapian on July 20, 2019</span>
 				</div>
 			</div>
 		</div>
@@ -181,6 +181,10 @@
 
 
 
+		
+
+
+
 
 
 
@@ -192,12 +196,12 @@
 
 		<hr class="style-one">
 
-		<a href="/2019/07/20/initialize-your-gpg-certs/">
-			<h2 class="post-title"> Use BCM with your Trezor</h2>
+		<a href="/2019/07/20/getting-started-with-bcm/">
+			<h2 class="post-title"> Getting Started with Bitcoin Cache Machine</h2>
 		</a>
 
 		
-		<h4 class="post-subtitle">Initialize your Trezor GPG certificates, make git commits and tags, and login to a remote machine using SSH.</h4>
+		<h4 class="post-subtitle">Learn the basics of BCM and how to get it on your machine!</h4>
 		
 
 		<p class="post-meta" style="margin-top: 5px;margin-bottom:5px; font-size: 0.8em">Posted by farscapian on July 20, 2019</p>
@@ -216,12 +220,12 @@
 
 		<hr class="style-one">
 
-		<a href="/2019/07/20/initialize-your-gpg-certs/">
-			<h2 class="post-title"> Use BCM with your Trezor</h2>
+		<a href="/2019/07/20/getting-started-with-bcm/">
+			<h2 class="post-title"> Getting Started with Bitcoin Cache Machine</h2>
 		</a>
 
 		
-		<h4 class="post-subtitle">Initialize your Trezor GPG certificates, make git commits and tags, and login to a remote machine using SSH.</h4>
+		<h4 class="post-subtitle">Learn the basics of BCM and how to get it on your machine!</h4>
 		
 
 		<p class="post-meta" style="margin-top: 5px;margin-bottom:5px; font-size: 0.8em">Posted by farscapian on July 20, 2019</p>
@@ -258,10 +262,6 @@
 
 		
 		
-
-		
-
-
 
 		
 
@@ -343,7 +343,30 @@
 		<div class="row">
 			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-				<p>Here’s the link to the <a href="/assets/bcm_presentation_10Jan19.pdf">presentation slides.</a>.</p>
+				<h2 id="how-bcm-uses-your-trezor">How BCM uses your Trezor</h2>
+
+<p>Most cryptographic operations in BCM use Trezor-backed GPG certificates. We recommend you buy a dedicated Trezor-T device for your BCM activities.</p>
+
+<h2 id="use-bcm-init-to-create-new-gpg-certificates-and-password-store">Use ‘bcm init’ to create new GPG certificates and Password Store</h2>
+
+<p>When you first start using BCM, it will detect whether your have initilzed your GPG and password stores. If <code class="highlighter-rouge">~/.gnupg/trezor</code> doesn’t yet exist, you will be prompted to create new GPG certificates. Be sure you have your Trezor handy! Of course, you can always generate them manually by running <code class="highlighter-rouge">bcm init</code> at the CLI.</p>
+
+<p>When generating new certificates, you will be asked for the Certificate Title, username, and domain name. This defines the title of your certificate. For example, if your name is <code class="highlighter-rouge">Satoshi Natamoto</code>, username is <code class="highlighter-rouge">satoshi</code>, and your domain is <code class="highlighter-rouge">bitcoin.org</code>, your certificate will look like.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Satoshi Nakamoto &lt;satoshi@bitcoin.org&gt;
+</code></pre></div></div>
+
+<p>After the prompts, BCM scripts communicate with your Trezor to generate them. You can generate the certificates at the BIP32 root of the device, or you’re welcom</p>
+
+<h2 id="use-bcm-git-command-to-create-signed-git-commit-and-git-tags">Use ‘bcm git’ command to create signed git commit and git tags</h2>
+
+<h2 id="use-bcm-ssh-to-perform-ssh-authentication-with-remote-machines">Use ‘bcm ssh’ to perform SSH authentication with remote machines</h2>
+
+<h2 id="use-bcm-file-commands-to-encrypt-and-decrypt-files">Use ‘bcm file’ commands to encrypt and decrypt files</h2>
+
+<h2 id="use-bcm-file-commands-to-create-and-verify-file-signatures">Use ‘bcm file’ commands to create and verify file signatures</h2>
+
+<h2 id="use-bcm-pass-commands-to-create-and-manage-passwords-locally">Use ‘bcm pass’ commands to create and manage passwords locally</h2>
 
 
 				<hr>
@@ -351,12 +374,12 @@
 				<ul class="pager">
 					
 					<li class="previous">
-						<a href="/2018/11/27/introducing-bitcoin-cache-machine/" data-toggle="tooltip" data-placement="top" title="Introducing Bitcoin Cache Machine">&larr; Previous Post</a>
+						<a href="/2019/07/20/getting-started-with-bcm/" data-toggle="tooltip" data-placement="top" title="Getting Started with Bitcoin Cache Machine">&larr; Previous Post</a>
 					</li>
 					
 					
 					<li class="next">
-						<a href="/2019/07/20/getting-started-with-bcm/" data-toggle="tooltip" data-placement="top" title="Getting Started with Bitcoin Cache Machine">Next Post &rarr;</a>
+						<a href="/2019/07/20/deploy-your-bitcoin-stacks/" data-toggle="tooltip" data-placement="top" title="Using BCM to deploy fully-integrated Bitcoin-related software">Next Post &rarr;</a>
 					</li>
 					
 				</ul>

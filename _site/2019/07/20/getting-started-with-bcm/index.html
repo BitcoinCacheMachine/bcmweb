@@ -7,9 +7,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Privacy-preserving Bitcoin Payment infrastructure for home and office.">
-	<meta property="og:title" content="Greenville ACM presentation on Bitcoin Cache Machine" />
+	<meta property="og:title" content="Getting Started with Bitcoin Cache Machine" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="///2019/01/12/presentation-slides/" />
+<meta property="og:url" content="///2019/07/20/getting-started-with-bcm/" />
 <meta property="og:image" content="//img/header_v2.png">
 
 
@@ -17,9 +17,9 @@
 
 	<link rel='shortcut icon' type='image/png' href='/img/favicon.png' />
 
-	<title>Greenville ACM presentation on Bitcoin Cache Machine - Bitcoin Cache Machine - A Secure, Privacy-Preserving, Software-Defined Data Center</title>
+	<title>Getting Started with Bitcoin Cache Machine - Bitcoin Cache Machine - A Secure, Privacy-Preserving, Software-Defined Data Center</title>
 
-	<link rel="canonical" href="/2019/01/12/presentation-slides/">
+	<link rel="canonical" href="/2019/07/20/getting-started-with-bcm/">
 
 	<!-- Bootstrap Core CSS -->
 	<link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -121,11 +121,11 @@
 		<div class="row">
 			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 				<div class="post-heading" style="padding: 50px 0">
-					<h1>Greenville ACM presentation on Bitcoin Cache Machine</h1>
+					<h1>Getting Started with Bitcoin Cache Machine</h1>
 					
-					<h2 class="subheading">Problem statement, concept of operations, command line interface, architecture.</h2>
+					<h2 class="subheading">Learn the basics of BCM and how to get it on your machine!</h2>
 					
-					<span class="meta">Posted by farscapian on January 12, 2019</span>
+					<span class="meta">Posted by farscapian on July 20, 2019</span>
 				</div>
 			</div>
 		</div>
@@ -239,6 +239,10 @@
 
 
 
+		
+
+
+
 
 
 
@@ -258,10 +262,6 @@
 
 		
 		
-
-		
-
-
 
 		
 
@@ -343,7 +343,25 @@
 		<div class="row">
 			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-				<p>Here’s the link to the <a href="/assets/bcm_presentation_10Jan19.pdf">presentation slides.</a>.</p>
+				<p>It’s been a while since I added any posts to this website! To make up for my slack, I’m making a commitment to produce a blog post every couple weeks to demonstrate some of the neat things Bitcoin Cache Machine is capable of! Stay tuned to this website and Twitter.</p>
+
+<p>In this article, I describe some of the basics of Bitcoin Cache Machine (BCM). This includes how to get it, how and when to use it, and what some of the basic functionalities are. I’ll go into greater detail in later posts and show you how you can use all the features provided by BCM.</p>
+
+<p>BCM is just a bunch of Bash scripts you download to your workstation (laptop/desktop). BCM allows you to deploy Bitcoin-related software to your local computer or to one or more remote machines.BCM integrates all software components so you can work in a trust-minimized manner! You no longer need to rely on untrusted third parties! Ditch those custodial services that can steal or censor your Bitcoin transaction. Say goodbye to third-party block explorers that surveil and log your every query! It’s the way Bitcoin was meant to be used–without reliance on anybody but yourself!</p>
+
+<p>All BCM components are deployed such that services (e.g., bitcoin RPC, bitcoind P2P, clightning RPC, etc) can be securly accessed from your local network secured using a Wireguard VPN. All services are also exposed over Tor onion services when operating from the Internet. Because BCM uses TOR, there’s never any need to open firewall ports!</p>
+
+<p>The scripts provided in the BCM repository provide everything you need to deploy BCM components, whether it’s a Bitcoin Core full node, clightning node, Spark web application to manage that node, or a desktop application like Electrum wallet. All components are configured to consult your full node in a trust minimized manner. BCM also includes scripts that allow you to perform manual backup backup and restoration of critical data. BCM is built for privacy: all components are configured to use TOR for outbound communication when possible. You need to have a Trezor-T hardware wallet in order to use BCM.</p>
+
+<h2 id="download-bcm-to-your-computer">Download BCM to your computer</h2>
+
+<p>INSERT GETTING STARTED INSTRUCTIONS</p>
+
+<h2 id="initialize-bcm-download-necessary-software">Initialize BCM; download necessary software</h2>
+
+<p>BCM scripts download and install pre-requisites. Software that BCM installs include</p>
+
+<p>##</p>
 
 
 				<hr>
@@ -351,12 +369,12 @@
 				<ul class="pager">
 					
 					<li class="previous">
-						<a href="/2018/11/27/introducing-bitcoin-cache-machine/" data-toggle="tooltip" data-placement="top" title="Introducing Bitcoin Cache Machine">&larr; Previous Post</a>
+						<a href="/2019/01/12/presentation-slides/" data-toggle="tooltip" data-placement="top" title="Greenville ACM presentation on Bitcoin Cache Machine">&larr; Previous Post</a>
 					</li>
 					
 					
 					<li class="next">
-						<a href="/2019/07/20/getting-started-with-bcm/" data-toggle="tooltip" data-placement="top" title="Getting Started with Bitcoin Cache Machine">Next Post &rarr;</a>
+						<a href="/2019/07/20/initialize-your-gpg-certs/" data-toggle="tooltip" data-placement="top" title="Use BCM with your Trezor">Next Post &rarr;</a>
 					</li>
 					
 				</ul>
